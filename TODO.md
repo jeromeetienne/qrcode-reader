@@ -1,0 +1,3 @@
+- remove vue.js
+- put all dependancy locals
+- make the video stream full page
