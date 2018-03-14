@@ -2,12 +2,15 @@
 
 <link rel="stylesheet" href="css/main.css">
 
+<!-- include https://github.com/webrtc/adapter -->
 <script src="vendor/webrtc-adapter.min.js"></script>
+
+
 <script src="instascan/dist/instascan.js"></script>
 
 <body>
-        <div class="video-container">
-                <video id="video"></video>
+        <div class="video-container fullscreen-bg">
+                <video id="video" class='fullscreen-bg__video'></video>
         </div>
         <script src="js/webrtc-camera.js"></script>
         <script src="js/main.js"></script>

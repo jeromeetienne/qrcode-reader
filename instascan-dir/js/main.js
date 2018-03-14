@@ -1,12 +1,13 @@
 //////////////////////////////////////////////////////////////////////////////
 //                init scanner
 //////////////////////////////////////////////////////////////////////////////
-this.scanner = new Instascan.Scanner({
+var scanner = new Instascan.Scanner({
         video: document.querySelector('#video'),
-        scanPeriod: 1
+        // scanPeriod: 1
 });
+scanner.refractoryPeriod = 500
 
-this.scanner.addListener('scan', function (content, image) {
+scanner.addListener('scan', function (content, image) {
         console.log('content', content)
 });
 
@@ -18,6 +19,7 @@ this.scanner.addListener('scan', function (content, image) {
 WebrtcCamera.getCameras().then(cameras => {
         if (cameras.length > 0) {
                 console.log(`start camera '${cameras[0].name}'`)
+                console.dir(cameras)
                 this.scanner.start(cameras[0]);
         } else {
                 console.error('No cameras found.');

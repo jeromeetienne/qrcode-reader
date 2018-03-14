@@ -19,17 +19,13 @@
 	        }
 	        
 	        async start() {
+			// see constraints here https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
 	                let constraints = {
 	                        audio: false,
 	                        video: {
-	                                mandatory: {
-	                                        // TODO yuck the video is hardcoded...
-	                                        sourceId: this.id,
-	                                        minWidth: 600,
-	                                        maxWidth: 800,
-	                                        minAspectRatio: 1.6
-	                                },
-	                                optional: []
+                                        sourceId: this.id,
+                                        width: 640,
+					height: 360,					
 	                        }
 	                };
 	                

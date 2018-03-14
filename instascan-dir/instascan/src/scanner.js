@@ -166,7 +166,7 @@ class Scanner extends EventEmitter {
                 this._continuous = (opts.continuous !== false);
                 this._analyzer = new Analyzer(this.video);
                 this._camera = null;
-                
+
                 let captureImage = opts.captureImage || false;
                 let scanPeriod = opts.scanPeriod || 1;
                 let refractoryPeriod = opts.refractoryPeriod || (5 * 1000);
