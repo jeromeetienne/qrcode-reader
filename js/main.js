@@ -31,14 +31,18 @@ var userMediaConstraints = {
 }
 // Replace the source of the video element with the stream from the camera
 navigator.mediaDevices.getUserMedia(userMediaConstraints).then(function(stream) {
+	
+	// TODO use videoEl.srcObject !== undefined to detect feature 
+	
 	var ua = navigator.userAgent.toLowerCase(); 
+	
 	if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') === -1) { 
 	  videoEl.srcObject = stream;
 	} else {
 		if(window.URL) {
 			var objUrl = window.URL.createObjectURL(stream);
 			videoEl.src = objUrl;
-			videoEl.srcObject = objUrl;
+			// videoEl.srcObject = stream;
 		} else {
 			videoEl.srcObject = stream;
 		}
