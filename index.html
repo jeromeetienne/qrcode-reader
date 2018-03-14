@@ -12,16 +12,30 @@
 	<div class="video-container fullscreen-bg">
 		<video autoplay id="camsource" class='fullscreen-bg__video'></video>
 	</div>
+	
+	<div id='app-info'>
+		<div class="content">
+			QRCode Reader - <a target='_blank' href='https://github.com/jeromeetienne/qrcode-reader'>github<a/>
+			<br/>
+			Made with love by <a target='_blank' href='https://twitter.com/jerome_etienne'>jerome etienne</a>
+			
+		</div>
+	</div>
+	
+	
 	<div id="content-overlay" style='display: none'>
 		<div class='qrcode-value'></div>
 		<a class='copy-clipboard button'>
 			<i class="material-icons">content_copy</i>
+			<div class='label'>Copy</div>
 		</a>
 		<a class='open-browser button'>
 			<i class="material-icons">open_in_browser</i>
+			<div class='label'>Open</div>
 		</a>
 		<a class='close-overlay button'>
 			<i class="material-icons">close</i>
+			<div class='label'>Close</div>
 		</a>
 	</div>
 

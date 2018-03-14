@@ -2,3 +2,22 @@ body, html {
 	margin: 0;
 	padding: 0;
 }
+
+#app-info {
+	width: 100%;
+	z-index: 1;
+	font-family: arial;
+	text-align: center;
+	position: fixed;
+	top: 0px;
+	pointer-events: none;
+}
+
+#app-info .content {
+	pointer-events: all;
+	width: 15em;
+	/* width: inherit; */
+	margin: auto;
+	padding: 0.5em;
+	background-color: rgba(255,255,255, 0.4);
+}
