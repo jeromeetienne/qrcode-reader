@@ -31,7 +31,19 @@ var userMediaConstraints = {
 }
 // Replace the source of the video element with the stream from the camera
 navigator.mediaDevices.getUserMedia(userMediaConstraints).then(function(stream) {
-	videoEl.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+	var ua = navigator.userAgent.toLowerCase(); 
+	if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') === -1) { 
+	  videoEl.srcObject = stream;
+	} else {
+		if(window.URL) {
+			var objUrl = window.URL.createObjectURL(stream);
+			videoEl.src = objUrl;
+			videoEl.srcObject = objUrl;
+		} else {
+			videoEl.srcObject = stream;
+		}
+	}
+	videoEl.play();
 }).catch(function(error) {
 	console.log(error)
 });
