@@ -130,7 +130,8 @@ qrcode.process = function(ctx){
 	
 	var end = new Date().getTime();
 	var time = end - start;
-	console.log(time);
+	// @jeromeetienne removed this log
+	// console.log(time);
     
 	return str;
 	//alert("Time:" + time + " Code: "+str);

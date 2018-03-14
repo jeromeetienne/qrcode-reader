@@ -1,0 +1,45 @@
+#content-overlay {
+	background-color: rgba(255,255,255,0.5);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#content-overlay .qrcode-value {
+	text-align: center;
+	top: 20%;
+	position: relative;
+	font-size: 200%;
+}
+
+#content-overlay .button {
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 50%;
+	padding: 1em;
+}
+#content-overlay .button:hover {
+	background-color: rgba(64,64,64,0.5);
+}
+#content-overlay .button i {
+	font-size: 200%;	
+}
+
+#content-overlay .copy-clipboard {
+	position: absolute;
+	left: 2em;
+	bottom: 2em;
+}
+
+
+
+#content-overlay .open-browser {
+	position: absolute;
+	right: 2em;
+	bottom: 2em;
+}
+
+#content-overlay .close-overlay {
+	position: absolute;
+	right: 2em;
+	top: 2em;
+}

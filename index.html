@@ -1,0 +1,30 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<script src='vendor/jsqrcode-packaged/build/jsqrcode.js'></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/fullscreen.css">
+<link rel="stylesheet" href="css/overlay.css">
+
+<body>
+	<div class="video-container fullscreen-bg">
+		<video autoplay id="camsource" class='fullscreen-bg__video'></video>
+	</div>
+	<div id="content-overlay" style='display: none'>
+		<div class='qrcode-value'></div>
+		<a class='copy-clipboard button'>
+			<i class="material-icons">content_copy</i>
+		</a>
+		<a class='open-browser button'>
+			<i class="material-icons">open_in_browser</i>
+		</a>
+		<a class='close-overlay button'>
+			<i class="material-icons">close</i>
+		</a>
+	</div>
+
+	<script src='js/overlay.js'></script>
+	<script src='js/main.js'></script>
+</body>
