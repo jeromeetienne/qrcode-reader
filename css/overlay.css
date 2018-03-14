@@ -3,6 +3,7 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
+
 }
 
 #content-overlay .qrcode-value {
@@ -10,6 +11,10 @@
 	top: 40%;
 	position: relative;
 	font-size: 200%;
+	
+	  /* text-overflow: ellipsis;
+	  white-space: nowrap;
+	  overflow: hidden; */
 }
 
 #content-overlay .button {

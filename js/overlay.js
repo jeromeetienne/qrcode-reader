@@ -3,11 +3,9 @@ class Overlay {
 		this.lastValue = null
 		
 		document.querySelector('#content-overlay .close-overlay').addEventListener('click', () => {
-			console.log('click closed')
 			this.hide()
 		})
 		document.querySelector('#content-overlay .open-browser').addEventListener('click', () => {
-			// console.log('click closed')
 			location.href= this.lastValue
 		})
 
