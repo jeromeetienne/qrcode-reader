@@ -1,43 +1,48 @@
-/* JavaScript code */
-
-function read(a)
-{
-    $("#qr-value").text(a);
-}
     
-qrcode.callback = read;
+qrcode.callback = function read(qrCodeValue){
+	console.log('read value', qrCodeValue)
+};
 
 //////////////////////////////////////////////////////////////////////////////
 //		Code Separator
 //////////////////////////////////////////////////////////////////////////////
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-var cam_video_id = "camsource"
+// Assign the <video> element to a variable
+var videoEl = document.querySelector('#camsource');
+var options = {
+	"audio": false,
+	"video": true
+};
+// Replace the source of the video element with the stream from the camera
+console.assert(navigator.getUserMedia, 'navigator.getUserMedia not defeined')
+navigator.getUserMedia(options, function(stream) {
+	videoEl.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+}, function(error) {
+	console.log(error)
+});
 
-window.addEventListener('DOMContentLoaded', function() {
-    // Assign the <video> element to a variable
-    var video = document.getElementById(cam_video_id);
-    var options = {
-        "audio": false,
-        "video": true
-    };
-    // Replace the source of the video element with the stream from the camera
-    if (navigator.getUserMedia) {
-        navigator.getUserMedia(options, function(stream) {
-            video.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
-        }, function(error) {
-            console.log(error)
-        });
-        // Below is the latest syntax. Using the old syntax for the time being for backwards compatibility.
-        // navigator.getUserMedia({video: true}, successCallback, errorCallback);
-    } else {
-        $("#qr-value").text('Sorry, native web camera streaming (getUserMedia) is not supported by this browser...')
-        return;
-    }
-}, false);
+function scanVideo(){
+	// dont scan if videoEl isnt yet initialized
+	if( videoEl.videoWidth === 0 )	return
+	
+	var scale = 0.5
+	// console.time('capture');
+	var canvasEl = document.querySelector('#qr-canvas')
+	var context = canvasEl.getContext('2d');
+	// resize canvasEl
+	canvasEl.width = videoEl.videoWidth * scale;
+	canvasEl.height = videoEl.videoHeight * scale;
 
-$(document).ready(function() {
-    if (!navigator.getUserMedia) return;
-    cam = camera(cam_video_id);
-    cam.start()
-})
+	context.drawImage(videoEl, 0, 0, canvasEl.width, canvasEl.height);
+	try {
+		qrcode.decode();
+	} catch(error) {
+    		console.error(error);
+	}	
+}
+
+scanVideo()
+setInterval(function() {
+	scanVideo()
+}, 100);
