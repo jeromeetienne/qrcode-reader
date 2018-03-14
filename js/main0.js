@@ -34,13 +34,18 @@ navigator.mediaDevices.getUserMedia(userMediaConstraints).then(function(stream) 
 	
 	// TODO use videoEl.srcObject !== undefined to detect feature 
 	
-	// var ua = navigator.userAgent.toLowerCase(); 
+	var ua = navigator.userAgent.toLowerCase(); 
 	
-	if ( videoEl.srcObject === null ) { 
-		videoEl.srcObject = stream;
+	if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') === -1) { 
+	  videoEl.srcObject = stream;
 	} else {
-		console.asset( !window.URL, 'window.URL isnt define ')
-		var objUrl = window.URL.createObjectURL(stream);
+		if(window.URL) {
+			var objUrl = window.URL.createObjectURL(stream);
+			videoEl.src = objUrl;
+			// videoEl.srcObject = stream;
+		} else {
+			videoEl.srcObject = stream;
+		}
 	}
 	videoEl.play();
 }).catch(function(error) {
