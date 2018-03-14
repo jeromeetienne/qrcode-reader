@@ -13,15 +13,26 @@ document.body.appendChild(canvasEl)
 //		init video
 //////////////////////////////////////////////////////////////////////////////
 var videoEl = document.querySelector('#camsource');
-var options = {
-	"audio": false,
-	"video": true
-};
+var userMediaConstraints = {
+	audio: false,
+	video: {
+		facingMode: 'environment',
+		width: {
+			ideal: 640,
+			// min: 1024,
+			// max: 1920
+		},
+		height: {
+			ideal: 480,
+			// min: 776,
+			// max: 1080
+		}
+  	}
+}
 // Replace the source of the video element with the stream from the camera
-console.assert(navigator.getUserMedia, 'navigator.getUserMedia not defined')
-navigator.getUserMedia(options, function(stream) {
+navigator.mediaDevices.getUserMedia(userMediaConstraints).then(function(stream) {
 	videoEl.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
-}, function(error) {
+}).catch(function(error) {
 	console.log(error)
 });
 

@@ -17,37 +17,20 @@ class Overlay {
 			copyToClipboard(text)
 			return
 			function copyToClipboard(text){
+				// create a temporary input element
 				var input = document.createElement('input')
 				input.type = 'text'
 				input.value = text
 				document.body.appendChild(input)
+				// select input
 	        		input.select();
+				// copy it to clipboard
 	        		document.execCommand("copy");
+				// remove it from the dom
 				document.body.removeChild(input)				
 			}
 		})
 
-		// document.querySelector('#content-overlay .copy-clipboard').addEventListener('click', () => {
-		// 
-		// 	var emailLink = document.querySelector('#content-overlay .qrcode-value');  
-		// 	var range = document.createRange();  
-		// 	range.selectNode(emailLink);  
-		// 	window.getSelection().addRange(range);  
-		// 
-		// 	try {  
-		// 		// Now that we've selected the anchor text, execute the copy command  
-		// 		var successful = document.execCommand('copy');  
-		// 		var msg = successful ? 'successful' : 'unsuccessful';  
-		// 		console.log('Copy email command was ' + msg);  
-		// 	} catch(err) {  
-		// 		console.log('Oops, unable to copy');  
-		// 	}  
-		// 
-		// 	// Remove the selections - NOTE: Should use
-		// 	// removeRange(range) when it is supported  
-		// 	window.getSelection().removeAllRanges();  
-		// 
-		// })
 	}
 	updateQRCodeValue(qrCodeValue){
 		this.lastValue = qrCodeValue
