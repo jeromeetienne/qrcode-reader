@@ -1,4 +1,18 @@
+<!doctype html>
+<html>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="manifest.json">
+<link rel="mask-icon" href="safari-pinned-tab.svg" color="#000000">
+<link rel="shortcut icon" href="favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="browserconfig.xml">
+<meta name="theme-color" content="#000000">
 
 
 <script src='vendor/jsqrcode-packaged/build/jsqrcode.js'></script>
@@ -7,7 +21,7 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/fullscreen.css">
 <link rel="stylesheet" href="css/overlay.css">
-
+</head>
 <body>
 	<div class="video-container fullscreen-bg">
 		<video autoplay id="camsource" class='fullscreen-bg__video'></video>
@@ -15,9 +29,9 @@
 	
 	<div id='app-info'>
 		<div class="content">
-			QRCode Reader - <a target='_blank' href='https://github.com/jeromeetienne/qrcode-reader'>github<a/>
+			QRCode Reader - <a target="_blank" href="https://github.com/jeromeetienne/qrcode-reader">github</a>
 			<br/>
-			Made with love by <a target='_blank' href='https://twitter.com/jerome_etienne'>jerome etienne</a>
+			Made with love by <a target="_blank" href="https://twitter.com/jerome_etienne">jerome etienne</a>
 			
 		</div>
 	</div>
@@ -38,7 +52,25 @@
 			<div class='label'>Close</div>
 		</a>
 	</div>
-
+  <script src="/upup.min.js"></script>
+  <script>
+  UpUp.start({
+    'content-url': '/index.html',
+    'assets': [
+      'css/main.css',
+      'vendor/jsqrcode-packaged/build/jsqrcode.js',
+      'css/main.css',
+      'css/fullscreen.css',
+      'css/overlay.css',
+      'js/overlay.js',
+      'js/main.js',
+      'upup.min.js'
+    ]
+  });
+  </script>
+  
+  
 	<script src='js/overlay.js'></script>
 	<script src='js/main.js'></script>
 </body>
+</html>
